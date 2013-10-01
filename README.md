@@ -1,14 +1,11 @@
-procurapormim
-=======================
+## procurapormim
 
-Introdução
-------------
-< ... >
+TCC project in development.
 
 
-Ferramentas:
-    Flat UI
-    API do Google Maps 
-    API Google Charts
-    Zend Framework 2
-    jQuery 
+#### References - Referências ##
+
+* [Zend Framework 2](http://framework.zend.com/)
+* [API do Google Maps](https://developers.google.com/maps/)
+* [API Google Charts](https://developers.google.com/chart/)
+* [Flat UI](http://designmodo.com/demo/flat-ui/)
