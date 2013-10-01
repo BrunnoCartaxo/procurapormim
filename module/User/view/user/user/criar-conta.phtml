@@ -1,0 +1,134 @@
+<?php 
+	$this->headLink()->appendStylesheet($this->basePath() . '/css/criar-conta.css');
+	$this->inlineScript()->appendFile($this->basePath() . '/js/bootstrap-select.js')
+						 ->appendFile($this->basePath() . '/js/flatui-radio.js')
+						 ->appendFile($this->basePath() . '/js/flatui-checkbox.js')
+						 ->appendFile($this->basePath() . '/js/application.js');
+
+	# Configuração do form
+	$form = $this->form;
+	$form->prepare();
+	$form->setAttribute('action', $this->url('criar-conta'));
+?>
+
+<article id="main" class="create-account inside">
+	<div class="container">
+
+		<h2>Cadastre-se</h2>
+		<p>Crie uma conta ou se preferir use seu login do <a href="javascript:void(0);">Facebook</a>.</p>
+		
+		<?php echo $this->form()->openTag($form); ?>
+			<fieldset>
+				<legend>Dados Pessoais</legend>
+
+				<div class="clearfix">
+					<?php 
+						echo $this->formLabel($form->get('tipo_conta'));
+						echo $this->formSelect($form->get('tipo_conta'));
+					?>
+				</div>
+
+				<?php 
+					echo $this->formLabel($form->get('nome_completo'));
+					echo $this->formText($form->get('nome_completo'));
+				?>
+			</fieldset>
+
+			<fieldset>
+				<div class="span3 inline-block no-margin mleft">
+					<?php 
+						echo $this->formLabel($form->get('data_nasc'));
+						echo $this->formText($form->get('data_nasc'));
+					?>
+				</div>
+
+				<div class="span6 inline-block">
+					<?php echo $this->formLabel($form->get('sexo')); ?>
+		            <?php echo $this->formRadio($form->get('sexo')); ?>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<div class="span6 inline-block no-margin mleft">
+					<?php echo $this->formLabel($form->get('email')); ?>
+					<?php echo $this->formText($form->get('email')); ?>
+				</div>
+
+				<div class="span3 inline-block">
+					<?php echo $this->formLabel($form->get('telefone')); ?>
+					<?php echo $this->formText($form->get('telefone')); ?>
+				</div>
+
+				<div class="span3 inline-block">
+					<?php echo $this->formLabel($form->get('celular')); ?>
+					<?php echo $this->formText($form->get('celular')); ?>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<?php echo $this->formLabel($form->get('cep')); ?>
+				<?php echo $this->formText($form->get('cep')); ?>
+			</fieldset>
+
+			<fieldset>
+				<div class="span10 inline-block no-margin mleft">
+					<?php echo $this->formLabel($form->get('endereco')); ?>
+					<?php echo $this->formText($form->get('endereco')); ?>
+				</div>
+
+				<div class="span2 inline-block">
+					<?php echo $this->formLabel($form->get('numero')); ?>
+					<?php echo $this->formText($form->get('numero')); ?>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<div class="span3 inline-block no-margin mleft">
+					<?php echo $this->formLabel($form->get('complemento')); ?>
+					<?php echo $this->formText($form->get('complemento')); ?>
+				</div>
+
+				<div class="span3 inline-block">
+					<?php echo $this->formLabel($form->get('bairro')); ?>
+					<?php echo $this->formText($form->get('bairro')); ?>
+				</div>
+
+				<div class="span4 inline-block">
+					<?php echo $this->formLabel($form->get('cidade')); ?>
+					<?php echo $this->formText($form->get('cidade')); ?>
+				</div>
+
+				<div class="span2 inline-block">
+					<?php echo $this->formLabel($form->get('uf')); ?>
+					<?php echo $this->formSelect($form->get('uf')); ?>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<div class="span3 inline-block no-margin mleft">
+					<?php echo $this->formLabel($form->get('senha')); ?>
+					<?php echo $this->formText($form->get('senha')); ?>
+				</div>
+
+				<div class="span3 inline-block">
+					<?php echo $this->formLabel($form->get('confirmar_senha')); ?>
+					<?php echo $this->formText($form->get('confirmar_senha')); ?>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<label class="checkbox checked agree">
+					<span class="icons">
+						<span class="first-icon fui-checkbox-unchecked"></span>
+						<span class="second-icon fui-checkbox-checked"></span>
+					</span>
+					<?php echo $this->formCheckbox($form->get('noticicacoes')); ?>
+					<?php echo $this->formLabel($form->get('noticicacoes')); ?>
+				</label>
+		    </fieldset>
+
+		    <?php echo $this->formSubmit($form->get('cadastrar')); ?>
+		    <button class="btn btn-large span2 pull-right" type="reset">Cancelar</button>
+
+		<?php  echo $this->form()->closeTag(); ?>
+</article>

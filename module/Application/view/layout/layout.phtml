@@ -1,0 +1,107 @@
+<?php
+    # configurations
+    $connectedUser = false;
+    $nameUser = array('Marcelo Ogeda', 'Brunno Cartaxo', 'Pedro Franco');
+    shuffle($nameUser);
+?>
+
+<?php echo $this->doctype(); ?>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle(PROJECT_NAME)->setSeparator(' | ')->setAutoEscape(false) ?>
+
+        <!-- Favicon -->
+        <?php # echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico')) ?>
+
+        <!-- Styles -->
+        <?php  $this->headLink()->prependStylesheet($this->basePath() . '/css/flat-ui.css')
+                                ->prependStylesheet($this->basePath() . '/css/bootstrap.css'); ?>
+
+        <?php echo $this->headLink() ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                                      ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
+
+    </head>
+    <body>
+
+        <!-- header -->
+        <header id="header">
+            <div class="container">
+                <h1>
+                    <?php if ($this->identifyRoute() != "home") : ?>
+                        <a href="<?php echo $this->url('home') ?>">
+                            <span class="fui-search"></span>
+                            <?php echo PROJECT_NAME; ?>
+                        </a>
+                    <?php else : ?>
+                        <span class="fui-search"></span>
+                        <?php echo PROJECT_NAME; ?>
+                    <?php endif; ?>
+                </h1>
+
+                <div class="navbar navbar-inverse pull-right">
+                    <div class="navbar-inner">
+                        <div id="nav-collapse-01" class="nav-collapse collapse">
+                            <?php echo $this->navigation('navigation')
+                                            ->menu()
+                                            ->setPartial(array('layout/navigation.phtml', 'default'))
+                                            ->render(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header><!-- /header -->
+
+
+        <?php
+            if ($this->identifyRoute() != "home") :
+                echo $this->navigation('Navigation')
+                          ->breadcrumbs()
+                          ->setMinDepth(0)
+                          ->setPartial(array('layout/breadcrumbs.phtml', 'default'))
+                          ->render();
+            endif;
+        ?>
+
+
+        <!-- <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Login</h3>
+            </div>
+            <div class="modal-body">
+                <form action="" method=post"">
+                    <fieldset>
+                        <label>
+                            <input type="text" class="span5" placeholder="login ou e-mail" />
+                        </label>
+                        <label>
+                            <input type="password" class="span5" placeholder="senha" />
+                        </label>
+                        <button class="btn btn-small btn-inverse" type="button">entrar</button>
+                        <a class="forgot-password" href="<?php # echo $this->url('esqueci-senha'); ?>">Esqueci minha senha</a>
+                    </fieldset>
+                </form>
+            </div>
+        </div> -->
+
+
+        <?php echo $this->content; ?>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="span5 pull-right part-footer">
+                        <p class="text-center"><?php echo COPY; ?></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

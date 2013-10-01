@@ -1,0 +1,27 @@
+<?php
+	$this->headLink()->appendStylesheet($this->basePath() . '/css/esqueci-senha.css');
+
+
+	# Configuração do form
+	$form = $this->form;
+	$form->prepare();
+	$form->setAttribute('action', $this->url('login/esqueci-senha'));
+?>
+
+<article id="main" class="create-account inside">
+	<div class="container">
+
+		<h2>Esqueceu sua senha?</h2>
+		<p> Digite o seu endereço de e-mail para redefinir a sua senha. <br />
+			Verifique a sua pasta de spams ou desbloqueie o e-mail no-reply@procurapormim.com.br </p>
+
+		<?php echo $this->form()->openTag($form); ?>
+			<fieldset>
+				<?php 
+					echo $this->formLabel($form->get('email'));
+					echo $this->formText($form->get('email'));
+					echo $this->formSubmit($form->get('submit')); 
+				?>
+			</fieldset>	
+		<?php  echo $this->form()->closeTag(); ?>
+</article>

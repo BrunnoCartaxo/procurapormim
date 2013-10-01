@@ -1,0 +1,8 @@
+@import "layout.css";
+
+
+ul.state { margin: 0; display: block; list-style: none; position: relative; z-index: 35; }
+ul.state li { margin-bottom: 2px; }
+ul.state li:first-child { font-weight: bold; font-size: 13.5px; margin-bottom: 10px; white-space: nowrap; }
+ul.state li a { text-decoration: none; }
+ul.state li a span { margin-right: 3px; }

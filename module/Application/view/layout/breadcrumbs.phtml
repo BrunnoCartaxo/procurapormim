@@ -1,0 +1,21 @@
+<ul class="breadcrumb">
+	<?php
+			echo "<li><a href='". $this->url('home') ."'>Home</a> <span class='divider'>/</span></li>";
+		foreach ($this->pages as $page) :
+			$id = count($page);
+
+			if (!$page->isActive()) :
+				echo "<li data-id='". $id ."'>";
+				echo "<a href='". $this->url($page->getRoute(), array('action' => $page->getAction())) ."'>";
+				echo $page->getlabel();
+				echo "</a>";
+				echo "<span class='divider'>/</span>";
+				echo "</li>";
+			else :
+				echo "<li class='active' data-id='". $id ."'>";
+				echo $page->getlabel();
+				echo "</li>";
+			endif;
+		endforeach;
+	?>
+</ul>

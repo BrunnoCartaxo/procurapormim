@@ -1,0 +1,15 @@
+<ul class="nav">
+	<?php
+		foreach ($this->container as $page) :
+			$active    = ($page->isActive()) ? "class='active'" : null; 
+			$attrID    = ($page->getId() == null) ? null : "id='{$page->getId()}'";
+			$attrClass = ($page->getClass() == null) ? null : "class='{$page->getClass()}'";
+
+			echo "<li ". $active .">";
+			echo "<a ". $attrID . $attrClass ." href='". $this->url($page->getRoute(), array('action' => $page->getAction())) ."'>";
+			echo $page->getlabel();
+			echo "</a>";
+			echo "</li>";
+		endforeach;
+	?>
+</ul>

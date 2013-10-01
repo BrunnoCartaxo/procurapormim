@@ -1,0 +1,7 @@
+._*
+.~lock.*
+.gitmodules
+composer.phar
+init_autoloader.php
+vendor/
+.DS_Store
