@@ -1,4 +1,4 @@
-@import "layout.css";
+@import "../layout.css";
 
 
 ul.state { margin: 0; display: block; list-style: none; position: relative; z-index: 35; }

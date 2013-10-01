@@ -1,5 +1,8 @@
 <?php 
-	$this->headLink()->appendStylesheet($this->basePath() . '/css/criar-conta.css');
+	# Styles
+	$this->headLink()->appendStylesheet($this->basePath() . '/css/user/criar-conta.css');
+
+	# Scripts
 	$this->inlineScript()->appendFile($this->basePath() . '/js/bootstrap-select.js')
 						 ->appendFile($this->basePath() . '/js/flatui-radio.js')
 						 ->appendFile($this->basePath() . '/js/flatui-checkbox.js')

@@ -1,4 +1,4 @@
-@import "layout.css";
+@import "../layout.css";
 
 
 #form-create-account fieldset .radio + .radio { margin-left: 20px; }
